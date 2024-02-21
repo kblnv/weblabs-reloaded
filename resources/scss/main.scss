@@ -1,0 +1,142 @@
+@use "vars" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #080808;
+
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: $fw-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  color: $color-text-primary;
+}
+
+h1 {
+  font-weight: $fw-extrabold;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-weight: $fw-bold;
+  font-size: 1.75rem;
+}
+
+p {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: $fw-regular;
+  font-size: 1rem;
+  color: $color-text-secondary;
+}
+
+.page {
+  width: 60%;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-bottom: 15px;
+  color: $color-text-secondary;
+
+  p {
+    margin-top: 20px;
+  }
+
+  &--wide {
+    width: 80%;
+  }
+}
+
+.button {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: $fw-bold;
+  font-size: 1.25rem;
+
+  border: none;
+  border-radius: 4px;
+
+  outline: none;
+  cursor: pointer;
+
+  &--green {
+    background-color: $color-bg-button-green;
+    color: $color-text-button-green;
+  }
+
+  &--white {
+    background-color: $color-bg-button-white;
+    color: $color-text-button-white;
+  }
+
+  &--large {
+    padding: 20px 64px;
+  }
+
+  &--medium {
+    padding: 15px 44px;
+  }
+
+  &--small {
+    padding: 10px 32px;
+  }
+}
+
+.table {
+  $table-border-color: #dddddd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid $table-border-color;
+  }
+
+  caption {
+    border-top: 1px solid $table-border-color;
+    border-right: 1px solid $table-border-color;
+    border-left: 1px solid $table-border-color;
+  }
+
+  tr {
+    border-top: 1px solid $table-border-color;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  td {
+    text-align: left;
+  }
+
+  th,
+  td {
+    border-right: 1px solid $table-border-color;
+    padding: 8px;
+  }
+}
+
+.input-error {
+  margin-top: 10px;
+  color: red;
+}

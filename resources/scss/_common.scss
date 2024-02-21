@@ -1,0 +1,87 @@
+@use "./vars" as *;
+
+.form {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+
+  min-width: 250px;
+  max-width: 650px;
+
+  width: 100%;
+}
+
+.form-input {
+  outline: none;
+  margin-top: 5px;
+
+  width: 100%;
+
+  padding: 16px 12px;
+  border-radius: 8px;
+
+  background-color: transparent;
+  border: 1px solid #ffffff;
+
+  color: #ffffff;
+  font-family: "IBM Plex Mono", sans-serif;
+
+  &::placeholder {
+    font-family: "IBM Plex Mono", sans-serif;
+  }
+}
+
+.form-button {
+  transition: transform 0.3s;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: rgba($color-bg-button-white, 0.4);
+  }
+}
+
+.form-group-button {
+  @extend .form-button;
+  width: 100%;
+  min-width: 200px;
+}
+
+.form-group-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 20px;
+
+  button:last-child {
+    margin-left: 15px;
+  }
+}
+
+.form-modal-buttons {
+  button {
+    @extend .form-button;
+    width: 100%;
+
+    &:last-child {
+      margin-left: 15px;
+    }
+  }
+}
+
+@mixin label() {
+  color: $color-text-primary;
+  font-weight: $fw-bold;
+  margin: 0;
+}

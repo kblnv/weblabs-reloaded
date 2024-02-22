@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss">
-@use "@/scss/vars" as *;
+@use "@styles/vars" as *;
 
 .interests-page {
   display: flex;

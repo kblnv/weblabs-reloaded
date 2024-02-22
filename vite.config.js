@@ -16,6 +16,9 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": dirname(fileURLToPath(import.meta.url)) + "/resources",
+            "@src": dirname(fileURLToPath(import.meta.url)) + "/resources/js",
+            "@assets": dirname(fileURLToPath(import.meta.url)) + "/resources/assets",
+            "@styles": dirname(fileURLToPath(import.meta.url)) + "/resources/styles",
         },
     },
 });

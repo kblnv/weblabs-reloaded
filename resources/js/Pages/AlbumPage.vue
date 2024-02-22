@@ -72,8 +72,10 @@
 </template>
 
 <script>
+import { APP_URL } from "@src/config.js";
 import Layout from "../Components/Layout.vue";
-const BASE_URL = "/weblabs";
+
+const BASE_URL = APP_URL + "/resources/assets";
 
 export default {
   components: {

@@ -11,14 +11,14 @@
               Исследование объектной модели документа (DOM) и системы событий
               JavaScript
             </p>
-            <a
-              to="/weblabs/about"
+            <Link
+              href="/about"
               class="button button--green button--large"
-              >Обо мне ></a
+              >Обо мне ></Link
             >
           </div>
           <div class="main-page__photo">
-            <img src="../../assets/oppenheimer.jpg" alt="Оппенгеймер" />
+            <img src="@/assets/oppenheimer.jpg" alt="Оппенгеймер" />
           </div>
         </div>
       </div>
@@ -27,17 +27,19 @@
 </template>
 
 <script>
+import { Link } from "@inertiajs/vue3";
 import Layout from "../Components/Layout.vue";
 
 export default {
   components: {
     Layout,
+    Link,
   }
 }
 </script>
 
 <style lang="scss">
-@use "@/scss/vars" as *;
+@use "@styles/vars" as *;
 
 .main-page {
   &__content {

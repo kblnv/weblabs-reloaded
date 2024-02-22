@@ -127,7 +127,7 @@ export default {
 </script>
 
 <style lang="scss">
-@use "@/scss/vars" as *;
+@use "@styles/vars" as *;
 
 .header {
   width: 80%;

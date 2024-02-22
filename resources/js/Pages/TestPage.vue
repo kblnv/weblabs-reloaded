@@ -478,8 +478,8 @@ export default {
 </script>
 
 <style lang="scss">
-@use "@/scss/vars" as *;
-@use "@/scss/common" as *;
+@use "@styles/vars" as *;
+@use "@styles/common" as *;
 
 .test-page {
   .question {

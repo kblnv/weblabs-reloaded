@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Фотоальбом</title>
+  </Head>
   <Layout>
     <main class="page">
       <div class="album-page">
@@ -72,14 +75,21 @@
 </template>
 
 <script>
+import { Head } from "@inertiajs/vue3";
+
 import { APP_URL } from "@src/config.js";
-import Layout from "../Components/Layout.vue";
+import Layout from "@src/Components/Layout.vue";
+import { visitPage } from "@src/Utils/storage";
 
 const BASE_URL = APP_URL + "/resources/assets";
 
 export default {
   components: {
     Layout,
+    Head,
+  },
+  mounted() {
+    visitPage("Фотоальбом");
   },
   data() {
     return {

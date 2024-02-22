@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>История просмотра</title>
+  </Head>
   <Layout>
     <main class="page">
       <div class="history-page">
@@ -60,12 +63,19 @@
 </template>
 
 <script>
-import Layout from "../Components/Layout.vue";
-import { getCookie } from "../Utils/cookies.js";
+import { Head } from "@inertiajs/vue3";
+
+import Layout from "@src/Components/Layout.vue";
+import { getCookie } from "@src/Utils/cookies.js";
+import { visitPage } from "@src/Utils/storage";
 
 export default {
   components: {
     Layout,
+    Head,
+  },
+  mounted() {
+    visitPage("История просмотра");
   },
   data() {
     return {

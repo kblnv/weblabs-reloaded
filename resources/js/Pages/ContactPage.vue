@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Контакты</title>
+  </Head>
   <Layout>
     <main class="page">
       <div class="contact-page">
@@ -282,15 +285,22 @@
 </template>
 
 <script>
-import Layout from "../Components/Layout.vue";
-import Tooltip from "../Components/Tooltip.vue";
-import Modal from "../Components/Modal.vue";
+import { Head } from "@inertiajs/vue3";
+import Layout from "@src/Components/Layout.vue";
+import Tooltip from "@src/Components/Tooltip.vue";
+import Modal from "@src/Components/Modal.vue";
+
+import { visitPage } from "@src/Utils/storage";
 
 export default {
   components: {
     Tooltip,
     Modal,
     Layout,
+    Head,
+  },
+  mounted() {
+    visitPage("Контакты");
   },
   data() {
     return {

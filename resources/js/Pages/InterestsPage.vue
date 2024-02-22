@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Мои интересы</title>
+  </Head>
   <Layout>
     <main class="page page--wide">
       <div class="interests-page">
@@ -29,11 +32,18 @@
 </template>
 
 <script>
-import Layout from "../Components/Layout.vue";
+import { Head } from "@inertiajs/vue3";
+
+import Layout from "@src/Components/Layout.vue";
+import { visitPage } from "@src/Utils/storage";
 
 export default {
   components: {
     Layout,
+    Head,
+  },
+  mounted() {
+    visitPage("Интересы");
   },
   data() {
     return {

@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Главная</title>
+  </Head>
   <Layout>
     <main class="page">
       <div class="main-page">
@@ -27,13 +30,20 @@
 </template>
 
 <script>
+import { Head } from "@inertiajs/vue3";
 import { Link } from "@inertiajs/vue3";
-import Layout from "../Components/Layout.vue";
+
+import Layout from "@src/Components/Layout.vue";
+import { visitPage } from "@src/Utils/storage";
 
 export default {
   components: {
     Layout,
     Link,
+    Head,
+  },
+  mounted() {
+    visitPage("Главная");
   }
 }
 </script>

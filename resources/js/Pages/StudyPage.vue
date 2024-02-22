@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Учеба</title>
+  </Head>
   <Layout>
     <main class="page">
       <div class="study-page">
@@ -244,11 +247,18 @@
 </template>
 
 <script>
-import Layout from "../Components/Layout.vue";
+import { Head } from "@inertiajs/vue3";
+
+import Layout from "@src/Components/Layout.vue";
+import { visitPage } from "@src/Utils/storage";
 
 export default {
   components: {
     Layout,
+    Head,
+  },
+  mounted() {
+    visitPage("Учеба");
   }
 }
 </script>

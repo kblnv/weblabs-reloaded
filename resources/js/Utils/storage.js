@@ -41,7 +41,6 @@ export function initStorage() {
   if (storageIsReady()) return;
     
   for (let title of pageTitles) {
-    console.log(title)
     sessionStorage.setItem(title, 0);
   }
   

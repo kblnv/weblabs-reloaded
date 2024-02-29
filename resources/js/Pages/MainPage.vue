@@ -21,7 +21,7 @@
             >
           </div>
           <div class="main-page__photo">
-            <img src="@/assets/oppenheimer.jpg" alt="Оппенгеймер" />
+            <img src="@assets/oppenheimer.jpg" alt="Оппенгеймер" />
           </div>
         </div>
       </div>

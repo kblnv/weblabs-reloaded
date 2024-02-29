@@ -77,108 +77,24 @@
 <script>
 import { Head } from "@inertiajs/vue3";
 
-import { APP_URL } from "@src/config.js";
 import Layout from "@src/Components/Layout.vue";
 import { visitPage } from "@src/Utils/storage";
-
-const BASE_URL = APP_URL + "/resources/assets";
 
 export default {
   components: {
     Layout,
     Head,
   },
-  mounted() {
-    visitPage("Фотоальбом");
+  props: {
+    photos: Array,
   },
   data() {
     return {
       openedPhotoIndex: -1,
-      photos: [
-        {
-          path: BASE_URL + "/tommy-shelby1.jpg",
-          title: "Томас Шелби 1",
-          alt: "Томас Шелби 1",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby2.jpg",
-          title: "Томас Шелби 2",
-          alt: "Томас Шелби 2",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby3.jpg",
-          title: "Томас Шелби 3",
-          alt: "Томас Шелби 3",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby4.jpg",
-          title: "Томас Шелби 4",
-          alt: "Томас Шелби 4",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby5.jpg",
-          title: "Томас Шелби 5",
-          alt: "Томас Шелби 5",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby6.jpg",
-          title: "Томас Шелби 6",
-          alt: "Томас Шелби 6",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby7.jpg",
-          title: "Томас Шелби 7",
-          alt: "Томас Шелби 7",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby8.jpg",
-          title: "Томас Шелби 8",
-          alt: "Томас Шелби 8",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby9.jpg",
-          title: "Томас Шелби 9",
-          alt: "Томас Шелби 9",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby10.jpg",
-          title: "Томас Шелби 10",
-          alt: "Томас Шелби 10",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby11.jpg",
-          title: "Томас Шелби 11",
-          alt: "Томас Шелби 11",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby12.jpg",
-          title: "Томас Шелби 12",
-          alt: "Томас Шелби 12",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby13.jpg",
-          title: "Томас Шелби 13",
-          alt: "Томас Шелби 13",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby14.jpg",
-          title: "Томас Шелби 14",
-          alt: "Томас Шелби 14",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby15.jpg",
-          title: "Томас Шелби 15",
-          alt: "Томас Шелби 15",
-        },
-        {
-          path: BASE_URL + "/tommy-shelby16.jpg",
-          title: "Томас Шелби 16",
-          alt: "Томас Шелби 16",
-        },
-      ],
     };
   },
   mounted() {
+    visitPage("Фотоальбом");
     document.addEventListener("keydown", this.keydownHandler);
   },
   unmounted() {

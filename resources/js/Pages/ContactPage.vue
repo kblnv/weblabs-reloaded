@@ -335,7 +335,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@styles/vars" as *;
 @use "@styles/common" as *;
 
@@ -351,6 +351,7 @@ export default {
 
       &__group {
         @extend .form-group;
+        max-width: 650px;
       }
 
       label,

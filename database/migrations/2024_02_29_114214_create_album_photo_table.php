@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('album_photo', function (Blueprint $table) {
-            $table->string('path')->primary();
+            $table->id();
+            $table->string('path');
             $table->string('title');
             $table->string('alt');
             $table->timestamps();

@@ -25,7 +25,10 @@ Route::get('/interests', [InterestsPageController::class, 'index'])->name('inter
 
 Route::inertia('/study', 'StudyPage')->name('study');
 
-Route::get('/album', [AlbumPageController::class, 'index'])->name('album');
+Route::controller(AlbumPageController::class)->group(function() {
+    Route::get('/album', 'index')->name('album.index');
+    Route::post('/album', 'store')->name('album.store');
+});
 
 Route::controller(ContactPageController::class)->group(function () {
     Route::get('/contact', 'index')->name('contact.index');

@@ -48,6 +48,41 @@
         </div>
         <div class="album-page__content">
           <h1>Фотоальбом</h1>
+          <form
+            @submit.prevent="submitForm"
+            @reset="resetForm"
+            class="form form--center"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="title">Название фотографии</label>
+              <input type="text" id="title" class="form-input" v-model="form.title" placeholder="Название" />
+              <div v-if="form.errors.title" class="input-error">
+                {{ form.errors.title }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="file">Выберите фото для загрузки</label>
+              <input type="file" id="file" class="form-input" @input="form.photo = $event.target.files[0]" />
+              <div v-if="form.errors.photo" class="input-error">
+                {{ form.errors.photo }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-buttons">
+                <button type="submit" class="form-button button button--medium">
+                  Отправить
+                </button>
+                <button type="reset" class="form-button button button--medium">
+                  Очистить
+                </button>
+              </div>
+            </div>
+          </form>
+
           <div class="album-page__photos">
             <div
               v-for="(photo, index) of photos"
@@ -75,7 +110,7 @@
 </template>
 
 <script>
-import { Head } from "@inertiajs/vue3";
+import { Head, useForm } from "@inertiajs/vue3";
 
 import Layout from "@src/Components/Layout.vue";
 import { visitPage } from "@src/Utils/storage";
@@ -91,6 +126,10 @@ export default {
   data() {
     return {
       openedPhotoIndex: -1,
+      form: useForm({
+        title: "",
+        photo: null,
+      }),
     };
   },
   mounted() {
@@ -101,6 +140,17 @@ export default {
     document.removeEventListener("keydown", this.keydownHandler);
   },
   methods: {
+    submitForm() {
+      this.form.post("/album", {
+        onSuccess: () => {
+          this.resetForm();
+        },
+      });
+    },
+    resetForm() {
+      this.form.reset();
+      this.form.clearErrors();
+    },
     openPhoto(event) {
       this.openedPhotoIndex = Number(event.target.dataset.photo);
     },
@@ -140,7 +190,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@use "@styles/vars" as *;
+@use "@styles/common" as *;
+
 .album-page {
   .image {
     border: 3px solid #ffffff;
@@ -151,6 +204,21 @@ export default {
   &__content {
     h1 {
       text-align: center;
+    }
+
+    .form {
+      label {
+        @include label();
+      }
+
+      &-group {
+        max-width: 650px;
+      }
+
+      &--center {
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 

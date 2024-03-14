@@ -263,7 +263,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .study-page {
   &__content {
     h1 + h2 {
